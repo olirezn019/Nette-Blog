@@ -3,8 +3,14 @@
 body {
 	font: 16px/1.5 Georgia, Verdana, Arial;
 	margin: 0 auto;
-	color: #393E41;
-	background-color: #F6F7EB;
+	color: #F6F7EB;
+	/*color: #393E41;*/
+	/*background-color: #393E41;*/
+	background: url("../images/computer.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
 }
 
 @media only screen and (min-width: 768px) {
@@ -34,7 +40,11 @@ body {
 
 a {
 	text-decoration: none;
-	color: #638475;
+	color: #b7b7a4;
+}
+a:hover {
+	text-decoration: underline;
+	text-decoration-color: #b7b7a4;
 }
 
 /* flex-row class */
@@ -46,11 +56,11 @@ a {
 /* main page title and create new page link */
 .main-title {
 	display: inline-block;
-	margin-right: auto;
 }
-.new-post {
+.new-edit-post {
 	margin-top: auto;
 	margin-bottom: auto;
+	margin-left: auto;
 }
 
 input[type="text"]:focus, textarea:focus {
@@ -63,16 +73,12 @@ input[type="text"], input[type="email"], textarea {
 	border-radius: .3em;
 }
 
-body>p>a {
-	color: #A3A3A3;
-}
-
 /* post on the main page style */
 .post {
     padding: 1em;
     border-radius: .5em;
-    background-color: #638475;
-    box-shadow: 0 0 5px 0 #638475;
+    background: linear-gradient(#007b94, #264653);
+    box-shadow: 0 0 5px 0 #005f73;
 	color: #F6F7EB;
 }
 .post h2, .post h1 {
@@ -80,7 +86,12 @@ body>p>a {
     margin-bottom: .3em;
 }
 .post>h2>a {
-	color: #F6D0B1;
+	color: #e9c46a;
+}
+.post>h2>a:hover {
+	color: #e9c46a;
+	text-decoration: underline;
+	text-decoration-color: #e9c46a;
 }
 .post {
     margin-bottom: 2em;
@@ -89,11 +100,11 @@ body>p>a {
 /* The actual post when you click on it style */
 .post1 {
 	position: relative;
-	border-top: solid 1px #393E41;
-	border-bottom: solid 1px #393E41;
+	border-top: solid 2px #F6F7EB;
+	border-bottom: solid 2px #F6F7EB;
 	padding: .5em;
-	margin-top: 4em;
 	margin-bottom: 4em;
+	/*background-color: rgba(0, 0, 0, .4);*/
 }
 .post1 .date {
 	padding: .4em;
@@ -109,8 +120,8 @@ body>p>a {
 	padding: .5em;
 	margin: .4em;
 	border-radius: .5em;
-    background-color: #E7EBC5;
-    box-shadow: 0 0 5px 0 #878C8F;
+    background-color: #638475;
+    box-shadow: 0 0 5px 0 #638475;
 }
 .comment p, .comment h3{
 	margin-top: .2em;
@@ -122,4 +133,8 @@ body>p>a {
 
 .date {
     font-style: italic;
+}
+
+.button {
+	background-color: 
 }

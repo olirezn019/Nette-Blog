@@ -1,6 +1,9 @@
 {block content}
 
-<p><a n:href="Homepage:default">← back to posts list</a></p>
+<div class="flex-row">
+    <p><a n:href="Homepage:default">← back to posts list</a></p>
+    <a class="new-edit-post" n:href="edit $post->id">Edit this post</a>
+</div>
 <div class="post1">
     <p class="date">{$post->created_at|date:'F j, Y'}</p>
     <h1 n:block="title">{$post->title}</h1>

@@ -74,7 +74,14 @@ class PostPresenter extends Nette\Application\UI\Presenter
 
     public function postFormSucceeded(array $values): void
     {
-        $post = $this->database->table('posts')->insert($values);
+        $postId = $this->getParameter('postId');
+
+        if ($postId) {
+            $post = $this->database->table('posts')->get($postId);
+            $post->update($values);
+        } else {
+            $post = $this->database->table('posts')->insert($values);
+        }
 
         $this->flashMessage('Post was published', 'success');
         $this->redirect('show', $post->id);

@@ -1,16 +1,12 @@
-{* This is the welcome page, you can delete it *}
-
 {block content}
 	<div class="flex-row">
 		<h1 class="main-title" n:block="title">My blog</h1>
-		{*<a class="new-edit-post" n:href="Post:create">Write new post</a>*}
 		<a class="new-edit-post link" n:href="Post:create" n:if="$user->isLoggedIn()">Write new post</a>
 	</div>
 
 	{foreach $posts as $post}
 	<div class="post">
 		<h2><a href="{link Post:show $post->id}">{$post->title}</a></h2>
-		{* <h2>{$post->title}</h2> *}
 		<div>{$post->content}</div>
 		<p class="date">{$post->created_at|date:'F j, Y'}</p>
 	</div>

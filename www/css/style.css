@@ -1,50 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,400&display=swap');
-
-body {
-	font: 16px/1.5 Georgia, Verdana, Arial;
-	margin: 0 auto;
-	color: #F6F7EB;
-	/*color: #393E41;*/
-	/*background-color: #393E41;*/
-	background: url("../images/computer.jpg");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center;
-	background-size: cover;
-}
-
-@media only screen and (min-width: 768px) {
-	body {
-		width: 50%;
-	}
-	.post1 .date {
-		position: absolute;
-		margin: 0;
-		top: 0;
-		right: 0;
-	}
-}
-
-@media only screen and (max-width: 768px) {
-	body {
-		width: 80%;
-	}
-}
-
-@media only screen and (max-width: 1024px) {
-	.post1 .date {
-		position:static;
-		text-align: center;
-	}
-}
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap');
 
 a {
 	text-decoration: none;
-	color: #b5e48c;
 }
-a:hover {
+.link {
+	color: #e9c46a;
+}
+.link:hover {
 	text-decoration: underline;
-	text-decoration-color: #b5e48c;
+	text-decoration-color: #e9c46a;
+}
+
+/* navbar */
+.navbar{
+	padding: 1em;
+}
+.nav-item-home {
+	margin-right: auto;
+}
+.nav-item{
+	padding-left: 1em;
+	padding-right: 0.5em;
+	padding-top: 0.4em;
+	padding-bottom: 0.4em;
+	text-decoration: none;
+}
+
+.navbar{
+    background-color:rgb(35, 87, 136);
+}
+.nav-item{
+    color: rgb(225, 225, 225);
+}
+.nav-item:hover{
+    color: rgb(180, 180, 180);
 }
 
 /* flex-row class */

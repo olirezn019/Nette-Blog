@@ -1,6 +1,6 @@
 {block content}
 {*<p><a href="{link Post:show $_GET['postId']}">← back to post</a></p>*}
-<p><a href="{$_SERVER['HTTP_REFERER']}">← back</a></p>
+<p><a class="link" href="{$_SERVER['HTTP_REFERER']}">← back</a></p>
 <h1>Edit post</h1>
 
 {control postForm}

@@ -6,18 +6,21 @@
 
 	<title>{ifset title}{include title|stripHtml} | {/ifset}Nette Web</title>
 	<link rel="stylesheet" href="{$basePath}/css/style.css">
+	<link rel="stylesheet" href="{$basePath}/css/layout.css">
 </head>
 <body>
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
-	<ul class="navig">
-		<li><a n:href="Homepage:">Homepage</a></li>
-		{if $user->isLoggedIn()}
-			<li><a n:href="Sign:out">Sign out</a></li>
-		{else}
-			<li><a n:href="Sign:in">Sign in</a></li>
-		{/if}
-	</ul>
+	<nav class="navbar">
+		<div class="flex-row">
+			<a class="nav-item nav-item-home" n:href="Homepage:">Homepage</a>
+			{if $user->isLoggedIn()}
+				<a class="nav-item" n:href="Sign:out">Sign out</a>
+			{else}
+				<a class="nav-item" n:href="Sign:in">Sign in</a>
+			{/if}
+		</div>
+    </nav>
 
 	{include content}
 

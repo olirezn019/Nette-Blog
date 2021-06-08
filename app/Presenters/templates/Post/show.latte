@@ -1,8 +1,8 @@
 {block content}
 
 <div class="flex-row">
-    <p><a n:href="Homepage:default">← back to posts list</a></p>
-    <a class="new-edit-post" n:href="edit $post->id">Edit this post</a>
+    <p><a class="link" n:href="Homepage:default">← back to posts list</a></p>
+    <a class="new-edit-post link" n:href="edit $post->id">Edit this post</a>
 </div>
 <div class="post1">
     <p class="date">{$post->created_at|date:'F j, Y'}</p>
@@ -23,7 +23,7 @@
 
 	{foreach $comments as $comment}
         <div class="comment">
-            <h3><b><a href="mailto:{$comment->email}" n:tag-if="$comment->email">{$comment->name}</a></b> said:</h3>
+            <h3><b><a class="link" href="mailto:{$comment->email}" n:tag-if="$comment->email">{$comment->name}</a></b> said:</h3>
             <p>{$comment->content}</p>
             <p class="date">{$comment->created_at|date:'H:i \/ j\.m\.Y'}</p>
         </div>

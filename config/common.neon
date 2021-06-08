@@ -22,4 +22,4 @@ services:
 
 security:
 	users:
-		admin: secret  # user 'admin', password 'admin'
+		admin: admin  # user 'admin', password 'admin'

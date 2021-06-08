@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap');
-
 a {
 	text-decoration: none;
 }
@@ -14,27 +11,31 @@ a {
 
 /* navbar */
 .navbar{
-	padding: 1em;
+	padding-top: 1em;
+	padding-bottom: 1em;
 }
 .nav-item-home {
 	margin-right: auto;
 }
 .nav-item{
-	padding-left: 1em;
-	padding-right: 0.5em;
 	padding-top: 0.4em;
 	padding-bottom: 0.4em;
-	text-decoration: none;
+	position: relative;
+	display: inline-block;
 }
-
-.navbar{
-    background-color:rgb(35, 87, 136);
-}
+/* navbar colors */
 .nav-item{
     color: rgb(225, 225, 225);
 }
-.nav-item:hover{
-    color: rgb(180, 180, 180);
+/* animated nav-item */
+.nav-item span {
+	background-color: rgb(225, 225, 225);
+	height: 1px;
+	width: 0%;
+	display: block;
+	position: absolute;
+	bottom: 0;
+	transition-duration: .3s;
 }
 
 /* flex-row class */
@@ -53,10 +54,10 @@ a {
 	margin-left: auto;
 }
 
-input[type="text"]:focus, textarea:focus {
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
 	outline: none;
 }
-input[type="text"], input[type="email"], textarea {
+input[type="text"], input[type="email"], input[type="password"], textarea {
 	outline: none;
 	border: solid 1px #878C8F;
 	box-shadow: 0 0 2px 0 #878C8F;

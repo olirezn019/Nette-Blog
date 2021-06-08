@@ -74,6 +74,10 @@ class PostPresenter extends Nette\Application\UI\Presenter
 
     public function postFormSucceeded(array $values): void
     {
+        if (!$this->getUser()->isLoggedIn()) {
+            $this->error('You need to log in to create or edit posts');
+        }
+        
         $postId = $this->getParameter('postId');
 
         if ($postId) {
@@ -89,10 +93,20 @@ class PostPresenter extends Nette\Application\UI\Presenter
 
     public function actionEdit(int $postId): void
     {
+        if (!$this->getUser()->isLoggedIn()) {
+            $this->redirect('Sign:in');
+        }
         $post = $this->database->table('posts')->get($postId);
         if (!$post) {
             $this->error('Post not found');
         }
         $this['postForm']->setDefaults($post->toArray());
+    }
+
+    public function actionCreate(): void
+    {
+        if (!$this->getUser()->isLoggedIn()) {
+            $this->redirect('Sign:in');
+        }
     }
 }

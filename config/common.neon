@@ -19,3 +19,7 @@ di:
 
 services:
 	- App\Router\RouterFactory::createRouter
+
+security:
+	users:
+		admin: secret  # user 'admin', password 'admin'

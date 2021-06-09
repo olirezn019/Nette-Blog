@@ -27,19 +27,17 @@
 	{block scripts}
 	<script src="https://nette.github.io/resources/js/3/netteForms.min.js"></script>
 	<script>
-	
-	const nav_items = document.getElementsByClassName("nav-item");
-	//const spans = document.getElementsByClassName("nav-line");
+		const nav_items = document.getElementsByClassName("nav-item");
 
-	for (let item of nav_items) {
-		item.onmouseover = () => {
-			item.childNodes[0].style.width = "100%";
+		// nav-item animation
+		for (let item of nav_items) {
+			item.onmouseover = () => {
+				item.childNodes[0].style.width = "100%";
+			}
+			item.onmouseout = () => {
+				item.childNodes[0].style.width = "0px";
+			}
 		}
-		item.onmouseout = () => {
-			item.childNodes[0].style.width = "0px";
-		}
-	}
-
 	</script>
 	{/block}
 </body>

@@ -23,7 +23,8 @@ class PostPresenter extends Nette\Application\UI\Presenter
 
         $this->template->post = $post;
         // Add comments into the page
-	    $this->template->comments = $post->related('comments')->order('created_at');
+	    //$this->template->comments = $post->related('comments')->order('created_at');
+	    $this->template->comments = $this->database->table('comments')->where('post_id', $postId)->order('created_at');
     }
 
     protected function createComponentCommentForm(): Form

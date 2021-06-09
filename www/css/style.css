@@ -44,7 +44,7 @@ a {
 	flex-direction: row;
 }
 
-/* main page title and create new page link */
+/* main page title and create new page or new post link */
 .main-title {
 	display: inline-block;
 }

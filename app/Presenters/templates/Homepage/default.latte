@@ -8,7 +8,12 @@
 	<div class="post">
 		<h2><a href="{link Post:show $post->id}">{$post->title}</a></h2>
 		<div>{$post->content}</div>
-		<p class="date">{$post->created_at|date:'F j, Y'}</p>
+		<div class="flex-row">
+            <p class="italic mr-auto">{$post->created_at|date:'F j, Y'}</p>
+			{if $post->created_by != "admin"}
+				<p class="italic">by {$post->created_by}</p>
+			{/if}
+        </div>
 	</div>
 	{/foreach}
 {/block}

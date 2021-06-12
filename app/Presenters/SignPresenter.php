@@ -27,6 +27,8 @@ class SignPresenter extends Nette\Application\UI\Presenter
     {
         try {
             $this->getUser()->login($values->username, $values->password);
+			
+			$this->template->logged_user = $values->username; // add variable with the user
             $this->redirect('Homepage:');
 
         } catch (Nette\Security\AuthenticationException $e) {

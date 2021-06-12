@@ -19,7 +19,8 @@ di:
 
 services:
 	- App\Router\RouterFactory::createRouter
+	- App\UserAuthenticator
 
 security:
 	users:
-		admin: admin  # user 'admin', password 'admin'
+		#admin: admin  # user 'admin', password 'admin'

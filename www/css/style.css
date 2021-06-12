@@ -14,7 +14,7 @@ a {
 	padding-top: 1em;
 	padding-bottom: 1em;
 }
-.nav-item-home {
+.mr-auto {
 	margin-right: auto;
 }
 .nav-item{
@@ -30,12 +30,16 @@ a {
 /* animated nav-item */
 .nav-item span {
 	background-color: rgb(225, 225, 225);
-	height: 1px;
+	height: 2px;
 	width: 0%;
 	display: block;
 	position: absolute;
 	bottom: 0;
 	transition-duration: .3s;
+}
+
+.navbar-login>.nav-item {
+	margin-left: 1em;
 }
 
 /* flex-row class */
@@ -122,7 +126,7 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
 	display: inline-block;
 }
 
-.date {
+.italic {
     font-style: italic;
 	margin-bottom: 0;
 }

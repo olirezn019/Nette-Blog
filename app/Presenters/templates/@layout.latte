@@ -3,7 +3,6 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-
 	<title>{ifset title}{include title|stripHtml} | {/ifset}Nette Web</title>
 	<link rel="stylesheet" href="{$basePath}/css/style.css">
 	<link rel="stylesheet" href="{$basePath}/css/layout.css">
@@ -13,12 +12,15 @@
 
 	<nav class="navbar">
 		<div class="flex-row">
-			<a class="nav-item nav-item-home" n:href="Homepage:"><span class="nav-line"></span>Homepage</a>
-			{if $user->isLoggedIn()}
-				<a class="nav-item" n:href="Sign:out"><span class="nav-line"></span>Sign out</a>
-			{else}
-				<a class="nav-item" n:href="Sign:in"><span class="nav-line"></span>Sign in</a>
-			{/if}
+			<a class="nav-item mr-auto" n:href="Homepage:"><span class="nav-line"></span>Homepage</a>
+			<div class="navbar-login">
+				<a class="nav-item" n:href="Register:yes"><span class="nav-line"></span>Create Account</a>
+				{if $user->isLoggedIn()}
+				<a class="nav-item" n:href="Sign:out"><span class="nav-line"></span>Sign out ({$user->getIdentity()->name})</a>
+				{else}
+					<a class="nav-item" n:href="Sign:in"><span class="nav-line"></span>Sign in</a>
+				{/if}
+			</div>
 		</div>
     </nav>
 

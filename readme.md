@@ -1,7 +1,4 @@
-Nette Web Project
+Nette Blog
 =================
-přihlašovací jméno a heslo na úpravu postů je:
 
-Username: admin
-
-Password: admin
+První projekt v PHP Nette Frameworku

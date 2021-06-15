@@ -17,6 +17,7 @@
 				<a class="nav-item" n:href="Register:yes"><span class="nav-line"></span>Create Account</a>
 				{if $user->isLoggedIn()}
 				<a class="nav-item" n:href="Sign:out"><span class="nav-line"></span>Sign out ({$user->getIdentity()->name})</a>
+				<a class="nav-icon" n:href="User:settings"><img class="settings-icon" src="/nette-blog/www/images/settings_icon.png"></a>
 				{else}
 					<a class="nav-item" n:href="Sign:in"><span class="nav-line"></span>Sign in</a>
 				{/if}

@@ -37,8 +37,7 @@ a {
 	bottom: 0;
 	transition-duration: .3s;
 }
-
-.navbar-login>.nav-item {
+.navbar-login>.nav-item, .navbar-login>.nav-icon{
 	margin-left: 1em;
 }
 
@@ -145,4 +144,9 @@ input[type="submit"]:hover {
 	transition: .2s;
 	background-color: #e9c46a;
 	color: black;
+}
+
+.settings-icon {
+	width: 20px;
+	height: 20px;
 }

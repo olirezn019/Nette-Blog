@@ -6,11 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'App\\Bootstrap' => $baseDir . '/app/Bootstrap.php',
-    'App\\Presenters\\Error4xxPresenter' => $baseDir . '/app/Presenters/Error4xxPresenter.php',
-    'App\\Presenters\\ErrorPresenter' => $baseDir . '/app/Presenters/ErrorPresenter.php',
-    'App\\Presenters\\HomepagePresenter' => $baseDir . '/app/Presenters/HomepagePresenter.php',
-    'App\\Router\\RouterFactory' => $baseDir . '/app/Router/RouterFactory.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Latte\\Attributes\\TemplateFilter' => $vendorDir . '/latte/latte/src/Latte/attributes.php',
     'Latte\\Attributes\\TemplateFunction' => $vendorDir . '/latte/latte/src/Latte/attributes.php',
@@ -414,10 +409,6 @@ return array(
     'Nette\\Utils\\Strings' => $vendorDir . '/nette/utils/src/Utils/Strings.php',
     'Nette\\Utils\\UnknownImageFileException' => $vendorDir . '/nette/utils/src/Utils/exceptions.php',
     'Nette\\Utils\\Validators' => $vendorDir . '/nette/utils/src/Utils/Validators.php',
-    'Symfony\\Thanks\\Command\\FundCommand' => $vendorDir . '/symfony/thanks/src/Command/FundCommand.php',
-    'Symfony\\Thanks\\Command\\ThanksCommand' => $vendorDir . '/symfony/thanks/src/Command/ThanksCommand.php',
-    'Symfony\\Thanks\\GitHubClient' => $vendorDir . '/symfony/thanks/src/GitHubClient.php',
-    'Symfony\\Thanks\\Thanks' => $vendorDir . '/symfony/thanks/src/Thanks.php',
     'Tester\\Assert' => $vendorDir . '/nette/tester/src/Framework/Assert.php',
     'Tester\\AssertException' => $vendorDir . '/nette/tester/src/Framework/AssertException.php',
     'Tester\\CodeCoverage\\Collector' => $vendorDir . '/nette/tester/src/CodeCoverage/Collector.php',

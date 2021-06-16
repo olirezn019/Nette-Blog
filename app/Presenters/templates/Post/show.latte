@@ -8,6 +8,24 @@
     <p class="date">{$post->created_at|date:'F j, Y'}</p>
     <h1 n:block="title">{$post->title}</h1>
     <p>{$post->content}</p>
+    <div class="flex-row-center likes">
+        <div class="flex-column">
+            <a n:href="like (expand) [$post->id, true]"><img class="like-icon" src="/nette-blog/www/images/like_icon.png"></a>
+            {if $user->isLoggedIn() && $user_liked_post != null && $user_liked_post->user_like}
+                <p class="italic link m-0">{$post->likes}</p>
+            {else}
+                <p class="italic m-0">{$post->likes}</p>
+            {/if}
+        </div>
+        <div class="flex-column">
+            <a n:href="like (expand) [$post->id, false]"><img class="like-icon" src="/nette-blog/www/images/dislike_icon.png"></a>
+            {if $user->isLoggedIn() && $user_liked_post != null && $user_liked_post->user_dislike}
+                <p class="italic link m-0">{$post->dislikes}</p>
+            {else}
+                <p class="italic m-0">{$post->dislikes}</p>
+            {/if}
+        </div>
+    </div>
 </div>
 
 <h2>Post new comment</h2>
@@ -25,7 +43,9 @@
         <div class="comment">
             <h3><b><a class="link" href="mailto:{$comment->email}" n:tag-if="$comment->email">{$comment->name}</a></b> said:</h3>
             <p>{$comment->content}</p>
-            <p class="date">{$comment->created_at|date:'H:i \/ j\.m\.Y'}</p>
+            <div class="flex-row">
+                <p class="date">{$comment->created_at|date:'H:i \/ j\.m\.Y'}</p>
+            </div>
         </div>
 	{/foreach}
 

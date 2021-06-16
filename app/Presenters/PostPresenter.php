@@ -17,6 +17,14 @@ class PostPresenter extends Nette\Application\UI\Presenter
     public function renderShow(int $postId): void
     {
         $post = $this->database->table('posts')->get($postId);
+
+        $user = $this->getUser();
+        $this->template->user = $user;
+
+        $user_likes = $this->database->table('user_likes');
+        $user_liked_post = $user_likes->where('user_id', $user->getIdentity()->id)->where('post_id', $postId)->fetch();
+        $this->template->user_liked_post = $user_liked_post;
+
         if (!$post) {
             $this->error('Post not found');
         }
@@ -128,5 +136,120 @@ class PostPresenter extends Nette\Application\UI\Presenter
         if (!$this->getUser()->isLoggedIn()) {
             $this->redirect('Sign:in');
         }
+    }
+
+    public function actionLike($postId, bool $like): void
+    {
+        $user = $this->getUser();
+        $posts = $this->database->table('posts');
+        $user_likes = $this->database->table('user_likes');
+
+        // you need to log in to like posts
+        if (!$user->isLoggedIn()) {
+            $this->flashMessage("You need to be logged in to like posts", 'not success');
+            $this->redirect('show', $postId);
+        }
+
+        $row = $posts->get($postId);
+
+        $user_liked_post = $user_likes->where('user_id', $user->getIdentity()->id)->where('post_id', $postId)->fetch();
+
+        // if user haven't liked the post yet add it to the database
+        if (!$user_liked_post) {
+            if ($like)
+            {
+                $user_likes->insert([
+                    'post_id' => $postId,
+                    'user_id' => $user->getIdentity()->id,
+                    'user_like' => true,
+                    'user_dislike' => false
+                ]);
+                $row->update([
+                    'likes' => $row->likes+1
+                ]);
+            }
+            else
+            {
+                $user_likes->insert([
+                    'post_id' => $postId,
+                    'user_id' => $user->getIdentity()->id,
+                    'user_like' => false,
+                    'user_dislike' => true
+                ]);
+                $row->update([
+                    'dislikes' => $row->dislikes+1
+                ]);
+            }
+            $this->redirect('show', $postId);
+        }
+
+        // action if user liked the post
+        if ($like)
+        {
+            if (!$user_liked_post->user_like)
+            {
+                $row->update([
+                    'likes' => $row->likes+1
+                ]);
+                $user_liked_post->update([
+                    'user_like' => true
+                ]);
+
+                // if user already disliked the post delete the dislike
+                if ($user_liked_post->user_dislike)
+                {
+                    $row->update([
+                        'dislikes' => $row->dislikes-1
+                    ]);
+                    $user_liked_post->update([
+                        'user_dislike' => false
+                    ]);
+                }
+            }
+            else
+            {
+                $row->update([
+                    'likes' => $row->likes-1
+                ]);
+                $user_liked_post->update([
+                    'user_like' => false
+                ]);
+            }
+        }
+        // action if user disliked the post
+        else
+        {
+            if (!$user_liked_post->user_dislike)
+            {
+                $row->update([
+                    'dislikes' => $row->dislikes+1
+                ]);
+                $user_liked_post->update([
+                    'user_dislike' => true
+                ]);
+
+                // if user already liked the post delete the like
+                if ($user_liked_post->user_like)
+                {
+                    $row->update([
+                        'likes' => $row->likes-1
+                    ]);
+                    $user_liked_post->update([
+                        'user_like' => false
+                    ]);
+                }
+            }
+            else
+            {
+                $row->update([
+                    'dislikes' => $row->dislikes-1
+                ]);
+                $user_liked_post->update([
+                    'user_dislike' => false
+                ]);
+            }
+        }
+
+        $this->redirect('show', $postId);
     }
 }

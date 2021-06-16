@@ -43,9 +43,7 @@
         <div class="comment">
             <h3><b><a class="link" href="mailto:{$comment->email}" n:tag-if="$comment->email">{$comment->name}</a></b> said:</h3>
             <p>{$comment->content}</p>
-            <div class="flex-row">
-                <p class="date">{$comment->created_at|date:'H:i \/ j\.m\.Y'}</p>
-            </div>
+            <p class="date">{$comment->created_at|date:'H:i \/ j\.m\.Y'}</p>
         </div>
 	{/foreach}
 

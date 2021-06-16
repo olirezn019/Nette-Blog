@@ -41,10 +41,19 @@ a {
 	margin-left: 1em;
 }
 
-/* flex-row class */
+/* flex classes */
 .flex-row {
 	display: flex;
 	flex-direction: row;
+}
+.flex-row-center {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.flex-column {
+	display: flex;
+	flex-direction: column;
 }
 
 /* main page title and create new page or new post link */
@@ -127,7 +136,16 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
 
 .italic {
     font-style: italic;
+}
+
+.mb-0 {
 	margin-bottom: 0;
+}
+.mt-0 {
+	margin-top: 0;
+}
+.m-0 {
+	margin: 0;
 }
 
 input[type="submit"] {
@@ -149,4 +167,12 @@ input[type="submit"]:hover {
 .settings-icon {
 	width: 20px;
 	height: 20px;
+}
+.like-icon {
+	width: 40px;
+	height: 40px;
+}
+
+.likes {
+	text-align: center;
 }

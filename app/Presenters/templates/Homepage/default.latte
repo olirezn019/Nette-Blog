@@ -9,9 +9,9 @@
 		<h2><a href="{link Post:show $post->id}">{$post->title}</a></h2>
 		<div>{$post->content}</div>
 		<div class="flex-row">
-            <p class="italic mr-auto">{$post->created_at|date:'F j, Y'}</p>
+            <p class="italic mb-0 mr-auto">{$post->created_at|date:'F j, Y'}</p>
 			{if $post->created_by != "admin"}
-				<p class="italic">by {$post->created_by}</p>
+				<p class="italic mb-0">by {$post->created_by}</p>
 			{/if}
         </div>
 	</div>

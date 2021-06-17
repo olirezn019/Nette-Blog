@@ -45,7 +45,7 @@ class PostPresenter extends Nette\Application\UI\Presenter
             $form->addEmail('email', 'Email:');
         }
         $form->addTextArea('content', 'Comment:')->setRequired();
-        $form->addSubmit('send', 'Publish comment');
+        $form->addSubmit('send', 'Publish comment')->setHtmlAttribute('class', 'ajax');
 
         $form->onSuccess[] = [$this, 'commentFormSucceeded'];
         return $form;
@@ -74,7 +74,7 @@ class PostPresenter extends Nette\Application\UI\Presenter
         }
 
         $this->flashMessage('Thank you for your comment', 'success');
-        $this->redirect('this');
+        $this->redrawControl("comments");
     }
 
     protected function createComponentPostForm(): Form
@@ -138,7 +138,7 @@ class PostPresenter extends Nette\Application\UI\Presenter
         }
     }
 
-    public function actionLike($postId, bool $like): void
+    public function handleLike($postId, bool $like): void
     {
         $user = $this->getUser();
         $posts = $this->database->table('posts');
@@ -250,6 +250,6 @@ class PostPresenter extends Nette\Application\UI\Presenter
             }
         }
 
-        $this->redirect('show', $postId);
+        $this->redrawControl("likes");
     }
 }

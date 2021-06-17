@@ -8,9 +8,9 @@
     <p class="date">{$post->created_at|date:'F j, Y'}</p>
     <h1 n:block="title">{$post->title}</h1>
     <p>{$post->content}</p>
-    <div class="flex-row-center likes">
+    <div n:snippet="likes" class="flex-row-center likes">
         <div class="flex-column">
-            <a n:href="like (expand) [$post->id, true]"><img class="like-icon" src="/nette-blog/www/images/like_icon.png"></a>
+            <a class="ajax" n:href="like! $post->id, true"><img class="like-icon" src="/nette-blog/www/images/like_icon.png"></a>
             {if $user->isLoggedIn() && $user_liked_post != null && $user_liked_post->user_like}
                 <p class="italic link m-0">{$post->likes}</p>
             {else}
@@ -18,7 +18,7 @@
             {/if}
         </div>
         <div class="flex-column">
-            <a n:href="like (expand) [$post->id, false]"><img class="like-icon" src="/nette-blog/www/images/dislike_icon.png"></a>
+            <a class="ajax" n:href="like! $post->id, false"><img class="like-icon" src="/nette-blog/www/images/dislike_icon.png"></a>
             {if $user->isLoggedIn() && $user_liked_post != null && $user_liked_post->user_dislike}
                 <p class="italic link m-0">{$post->dislikes}</p>
             {else}
@@ -32,7 +32,7 @@
 {control commentForm}
 
 <h2>Comments ({count($comments)})</h2>
-<div class="comments">
+<div n:snippet="comments" class="comments">
 
     {* If there are no comments *}
     {if count($comments) == 0}
